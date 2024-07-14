@@ -1,0 +1,73 @@
+{%  extends 'base.html' %}
+{% block Title %} Update {% endblock %}
+{% block content %}
+
+    
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Edit Book</h3>
+    </div>
+    <!-- /.card-header -->
+    
+    <!-- form start -->
+    <form  method="POST" enctype="multipart/form-data">
+        <div class="card-body"> 
+       
+            <div class="form-group"> 
+              <label for="Title">Title</label> 
+              <input type="text" value="{{databook[1]}}"  required name="Title" class="form-control"  aria-describedby="emailHelp"> 
+      
+              <label for="Author">Author</label> 
+              <input type="text" value="{{databook[2]}}" required name="Author" class="form-control" >
+
+              <label for="pages">pages</label> 
+              <input type="number" value="{{databook[3]}}"  required name="pages" class="form-control" >
+              {% if databook[4] == 0 %}
+              <label for="price">price</label> 
+              <input type="number"  name="price" min="0" value="" step="any" class="form-control">
+              
+              <label for="RetalPriceDay">Rental price/day</label> 
+              <input type="number" value="{{databook[5]}}" name="RetalPriceDay"  min="0" value="" step="any" class="form-control">
+
+              <label for="RetalPeriod">Rental period</label> 
+              <input type="number" value="{{databook[6]}}" name="RetalPeriod" class="form-control">
+
+              {% else %}
+              <label for="price">price</label> 
+              <input type="number" value="{{databook[4]}}" name="price" min="0" value="" step="any" class="form-control">
+              
+              <label for="RetalPriceDay">Rental price/day</label> 
+              <input type="number"  name="RetalPriceDay"  min="0" value="" step="any" class="form-control">
+
+              <label for="RetalPeriod">Rental period</label> 
+              <input type="number"  name="RetalPeriod" class="form-control">
+
+              {% endif %}
+              <label for="status">statu</label> 
+              <select  class="form-control"  aria-label="Default select example" required name="statu">
+                <option value="">Open this select menu</option>
+                <option value="Available">Available</option>
+                <option value="Rental">Rental</option>
+                <option value="Sold">Sold</option>
+              </select>
+
+            </div> 
+          
+        </div>
+        <!-- /.card-body -->
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

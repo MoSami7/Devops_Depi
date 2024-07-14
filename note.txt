@@ -1,0 +1,7 @@
+activate enviroment at cmd
+
+.\vir\scripts\activate
+
+run at debug mode 
+
+flask --app app --debug run

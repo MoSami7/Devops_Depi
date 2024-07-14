@@ -1,0 +1,77 @@
+{%  extends 'base.html' %}
+{% block Title %} Books {% endblock %}
+{%  block content %}
+<div style="direction: rtl;" class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper p-5">
+      <!-- Content Header (Page header) -->
+
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1>Books</h1>
+                </div>
+ 
+              </div>
+          </section>
+      
+          <!-- Main content -->
+          <section class="content">                  
+            <!-- Default box -->
+            <div class="card card-solid">
+              <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                  {% for x in databook %}
+                  <!-- بداية الكتاب -->
+                  
+                  <div   class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch ">
+                    <div  id="" class="card bg-light">
+                      <div class="card-body pt-0">
+                        <div class="row">
+                          <div class="col-7">
+                            <h2 class="lead"><b>{{x[1]}}</b></h2>
+                            <ul class="  fa-ul text-muted">
+                              <li class="small"><span class="fa-li"></span>Status: {{x[8]}}$</li>
+                              {% if x[4] == 0 %}
+                              <li class="small"><span class="fa-li"></span>Price/Day: {{x[5]}}$</li>
+                              {% else %}
+                              <li class="small"><span class="fa-li"></span>Price: {{x[4]}}$</li>
+                              {% endif %}
+                            </ul>
+                          </div>
+                          <div class="col-5 text-center">
+                              <img style="height: 120px; width: 120px;"  src="static\dist\img\1.png">
+                           </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="text-right">
+                          <a href="{{url_for('delete',ID=x[0])}}" class="btn btn-sm bg-danger">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                          
+                          <a href= "{{url_for('update',ID=x[0])}}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-book"></i> edit
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                   <!-- نهاية الكتاب -->
+                   {% endfor %}
+                 
+              </div>
+              <!-- /.card-body -->
+
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+      
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      
+    </div>
+{%  endblock %}
+

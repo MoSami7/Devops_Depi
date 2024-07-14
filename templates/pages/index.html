@@ -1,0 +1,212 @@
+{% extends 'base.html' %}   
+{% block Title %} Homepage {% endblock %}
+{% block content %}
+  <div style="direction: rtl;" class="wrapper">
+
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper">
+      <!-- Content Header (Page header) -->
+  
+  
+      <!--الاحصائيات-->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Total Books</h3>                    
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span class="text-bold text-lg">{{allbook}}</span>
+                      <span>Total Books Number</span>
+                    </p>  
+                  </div>
+                  <!-- /.d-flex -->
+
+                  <div class="position-relative mb-4">
+                    <canvas id="visitors-chart" height="200"></canvas>
+                  </div>  
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-md-6 -->
+            
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Profits</h3>   
+                  </div>
+                </div>    
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span id="totalsalarys" class="text-bold text-lg">${{TotalPrice}}</span><br></p>
+                  </div>
+                  <!-- /.d-flex -->
+  
+                  <div class="position-relative mb-4">
+                    <canvas id="sales-chart" height="160"></canvas>
+                  </div>
+  
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                      <i class="fas fa-square text-primary"></i> Selling Profits
+                      <p id="soldtotals"></p>     
+                    </span>
+                    <span>
+                      <i class="fas fa-square text-gray"></i> Rental Profits
+                      <p id="rentedtotals"></p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- /.col-md-6 -->
+          </div>
+          <!-- /.row -->
+  
+          <!-- form add books -->
+          <div class="row m-1 mb-3">   
+            <a href="#bookform" class="btn btn-primary" data-toggle="collapse">Add Book +</a>
+          </div>
+          
+          <div id="bookform" class="card card-primary collapse">
+            <div class="card-header">
+              <h3 class="card-title">Add Book</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for("index")}}" > 
+              <div class="card-body"> 
+             
+                  <div class="form-group"> 
+                    <label for="Title">Title</label> 
+                    <input type="text" required name="Title" class="form-control"  aria-describedby="emailHelp"> 
+            
+                    <label for="Author">Author</label> 
+                    <input type="text" required name="Author" class="form-control" >
+
+
+                    <label for="pages">pages</label> 
+                    <input type="number" required name="pages" class="form-control" >
+
+                    <label for="price">price</label> 
+                    <input type="number"  name="price" min="0" value="" step="any" class="form-control">
+
+                    <label for="RetalPriceDay">Rental price/day</label> 
+                    <input type="number"  name="RetalPriceDay"  min="0" value="" step="any" class="form-control">
+
+                    <label for="RetalPeriod">Rental period</label> 
+                    <input type="number"  name="RetalPeriod"  class="form-control">
+
+                    <label for="status">status</label> 
+                    <select  class="form-control"  aria-label="Default select example" required name="statu">
+                      <option value="">Open this select menu</option>
+                      <option value="Available">Available</option>
+                      <option value="Rental">Rental</option>
+                      <option value="Sold">Sold</option>
+                    </select>
+ 
+                  </div> 
+                
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button  type="submit" class="btn btn-primary">Add</button>
+              </div>
+            </form>
+          </div>
+  
+                <!-- /.card -->
+          </div>
+          <!-- end form add books -->
+          <div class="row">
+          {% for x in databook %}
+          <!-- الكتب -->
+              <div id="" class="col-md-4">
+                  <!-- Widget: user widget style 1 -->
+                <div id="" class="card card-widget widget-user ">
+                  <!-- Add the bg color to the header using any of the bg-* classes -->
+                <!-- قائمة منسدلة -->
+                <div class="widget-user-header bg-info " >
+                 <!-- <img style="width: 380px; height: 100px;" class="img" src="static\dist\img\4.png" >-->
+                  <h3 class="widget-user-username">{{x[1]}}</h3>
+                  <h5 class="widget-user-desc">{{x[2]}}</h5>
+                </div>
+                <div class="widget-user-image">
+                  <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="static\dist\img\1.png" >
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-sm-4 border-right">
+                      <div class="description-block">
+                        <h5 class="description-header">{{x[3]}}</h5>
+                        <span class="description-text">Page</span>
+                      </div>
+                      <!-- /.description-block -->
+                    </div>
+                        <!-- /.col -->
+                    <div class="col-sm-4 border-right">
+                      <div class="description-block">
+                        {% if x[4] == 0 %}
+                        <h5 class="description-header">${{x[5]}}</h5>
+                        <span class="description-text">Price/Day</span>
+                        {% else %}
+                        <h5 class="description-header">${{x[4]}}</h5>
+                        <span class="description-text">Price</span>
+                        {% endif %}
+                      </div>
+                      <!-- /.description-block -->
+                    </div>
+                        <!-- /.col -->
+                    <div class="col-sm-4">
+                      <div class="description-block">
+                        {% if x[8] == "Available" %}
+                        <h5 class="description-header text-green">{{x[8]}}</h5>
+                        <span class="description-text">Status</span>
+                        {% elif  x[8] == "Rental"%}
+                        <h5 class="description-header text-yellow">{{x[8]}}</h5>
+                        <span class="description-text">Status</span>
+                        {% else %}
+                        <h5 class="description-header text-red">{{x[8]}}</h5>
+                        <span class="description-text">Status</span>
+                        {% endif %}
+                      </div>
+                      <!-- /.description-block -->
+                    </div>
+                        <!-- /.col -->
+                  </div>
+                      <!-- /.row -->
+                </div>
+                </div>
+                  <!-- /.widget-user -->
+              </div>
+          <!-- نهاية الكتاب -->
+          {% endfor %}
+            
+              <div class="row">
+                <div class="col text-center">
+                  <!--اضف صورة هنا في حالة عدم وجود كتب-->   
+                </div>
+              </div> 
+          </div>    
+      </div>
+    </div>
+        <!-- /.container-fluid -->
+  </div>
+      <!-- /.content -->
+</div>
+    <!-- /.content-wrapper -->
+
+{% endblock %}

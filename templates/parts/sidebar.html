@@ -1,0 +1,58 @@
+  <!-- في المكان ده هحط سلايد بار -->
+
+  <!-- Main Sidebar Container -->
+  <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <span class="brand-text font-weight-light">Library Management System</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block"></a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+          <li class="nav-item">
+            <a href="{{ url_for('books')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Books
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">Status</li>
+          
+          <li style="cursor: pointer;" class="nav-item">
+            <a href="{{ url_for('Sold')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Sold</p>
+            </a>
+          </li>
+          <li style="cursor: pointer;" class="nav-item">
+            <a href="{{ url_for('Rental')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>Rental</p>
+            </a>
+          </li>
+          <li style="cursor: pointer;" class="nav-item">
+            <a href="{{ url_for('Available')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>Available</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
