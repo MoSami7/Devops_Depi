@@ -3,7 +3,7 @@ name: Pipelinegit branch -d branch_name
 on:
   push:
     branches:
-      - master
+      - main
    
 
 jobs:
