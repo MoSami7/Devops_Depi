@@ -1,4 +1,4 @@
-name: Pipelinegit branch -d branch_name
+name: Pipeline
 
 on:
   push:
