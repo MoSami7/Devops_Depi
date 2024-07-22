@@ -2,8 +2,5 @@ numpy
 pandas
 flask
 pytest
-numpy
-pandas
 requests
-flask
-pytest
+flake8
