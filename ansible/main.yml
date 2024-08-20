@@ -1,0 +1,17 @@
+- name: Install docker on all app nodes
+  hosts: app
+  become: true
+  roles:
+    - docker
+
+- name: Deploy an app from Docker Hub on the VM
+  hosts: app
+  become: true
+  tasks:
+    - name: Deploy the app container
+      docker_container:
+        name: app
+        image: mosami77/libimg
+        state: started
+        ports:
+          - "80:8080"
