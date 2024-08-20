@@ -1,5 +1,6 @@
 # Library Management System
 This project is a small website that allows you to monitor your books, track profits and gains from selling and renting books, all through a simple and visually appealing interface.
+![image](https://github.com/user-attachments/assets/c3e3175b-3b2d-444f-aeb1-3554468180e3)
 
 # Project Overview
 This Library Management System is built using Python (Flask), SQL, HTML, and CSS. It allows users to manage their books and keep track of sales and rentals. The website provides a clear visualization of your book inventory and related financial data.
@@ -8,18 +9,31 @@ This Library Management System is built using Python (Flask), SQL, HTML, and CSS
 - Backend: Python (Flask)
 - Frontend: HTML, CSS
 - Database: SQL
-- DevOps: Docker, GitHub Actions, Terraform, Ansible
+- DevOps: Docker, GitHub Actions, Terraform, Ansible , AWS , AWS CLI
 
 	## Docker
+	![docker](https://github.com/user-attachments/assets/0141109b-92b2-4a5e-bf2a-e6e72cc140b9)
+
 	Docker is used to containerize the application, ensuring consistency across different environments. A Docker container includes everything the application needs to run: code, runtime, system tools, libraries, and settings.
 
 	## GitHub Actions
+	![github actions](https://github.com/user-attachments/assets/78ad420c-2079-40d4-8e23-e947b2f3d030)
+
 	GitHub Actions automates, customizes, and executes software development workflows right in your repository. We use it for Continuous Integration and Continuous Deployment (CI/CD), enabling automated testing, building, and deployment.
 
 	## Terraform
-	Terraform is used to create an EC2 instance on AWS, providing infrastructure as code. This allows us to define and provision the infrastructure in a safe and repeatable way.
+	![terraform](https://github.com/user-attachments/assets/cd4c8ad7-0408-4b70-a4d6-2ec74c6531b9)
 
+	Terraform is used to create an EC2 instance on AWS, providing infrastructure as code. This allows us to define and provision the infrastructure in a safe and repeatable way.
+	
+	## AWS CLI
+	![aws cli](https://github.com/user-attachments/assets/aac46b76-4237-4eb6-9f32-8bb40d76b5a0)
+
+	The AWS CLI (Command Line Interface) is a unified tool that allows you to interact with AWS services directly from your command line. With AWS CLI, you can control multiple AWS services and automate tasks through scripts, making it easier 		to manage resources like EC2 instances, S3 buckets, and more, without needing to use the AWS Management Console.
+	
 	## Ansible
+	![ansible](https://github.com/user-attachments/assets/c801ff06-8cec-4103-8cb6-189a7a5ddb46)
+
 	Ansible is employed for configuration management, automating the deployment and configuration of software on our EC2 instance.
 
 # Documentation Steps:
