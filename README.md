@@ -102,3 +102,9 @@
 
  ### Step 12: Run Ansible Playbook
 	ansible-playbook -i inventory playbook.yml
+
+ > **Notes:**
+	> My DockerHub repo : https://hub.docker.com/repository/docker/mosami77/libimg
+	> Docker installation Resource : https://docs.docker.com/
+	> Terraform installtion Resource : https://developer.hashicorp.com/terraform/docs
+	> Ansible installation Resource : https://docs.ansible.com/
