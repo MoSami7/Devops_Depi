@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lib-ingress
+  namespace: libapp
+spec:
+  rules:
+  - host: librarymanagement.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: lib-service
+            port:
+              number: 80

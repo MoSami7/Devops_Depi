@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lib-deployment
+  namespace: libapp
+  labels: 
+    app: lib
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lib
+  template:
+    metadata:
+      labels:
+        app: lib
+    spec:
+      containers: 
+      - name: lib-container
+        image: mosami77/libimg:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:    
+            cpu: "500m"
+            memory: "128Mi"
+          

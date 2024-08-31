@@ -3,10 +3,11 @@ from sqlite3 import Cursor
 from flask import Flask , render_template ,request ,url_for ,redirect
 from create_db import create_tables
 from FuctionDatabase import get_db
+from prometheus_flask_exporter import PrometheusMetrics
 
 
 app = Flask(__name__)
-
+metrics = PrometheusMetrics(app)
 
 
 @app.route('/' , methods = ['GET' , 'POST'])

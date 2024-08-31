@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lib-service
+  namespace: libapp
+spec:
+  type: NodePort #external service to make it accessible by browser 
+  selector:
+    app: lib
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort : 30100 #range of available ports from 30000 to 32767
+ # type: LoadBalancer
