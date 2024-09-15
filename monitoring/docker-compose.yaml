@@ -15,7 +15,7 @@ services:
     image: mosami77/libimg:latest
     container_name: app
     ports:
-      - "8080:8080"
+      - "5000:5000"
 
   loki:
     <<: *common
@@ -25,7 +25,7 @@ services:
     #   - "3100:3100"
     volumes:
       - ./config:/mnt/config
-    command: -config.file=/mnt/config/loki-config.yaml
+    command: -config.file=/mnt/config/loki.yaml
 
   promtail:
     <<: *common
@@ -35,7 +35,7 @@ services:
       - /var/lib/docker/containers:/var/lib/docker/containers  # Needed for container logs
       - /var/log:/var/log
       - ./config:/mnt/config
-    command: -config.file=/mnt/config/promtail-config.yaml
+    command: -config.file=/mnt/config/promtail.yaml
 
   grafana:
     <<: *common
@@ -43,8 +43,8 @@ services:
     container_name: grafana
     ports:
       - "3000:3000"
-    volumes:
-      - ./provisioning:/etc/grafana/provisioning
+   # volumes:
+    #  - ./provisioning:/etc/grafana/provisioning
 
   prometheus:
     <<: *common
@@ -54,4 +54,4 @@ services:
       - "9090:9090"
     volumes:
       - ./config:/mnt/config
-    command: --config.file=/mnt/config/prometheus-config.yaml
+    command: --config.file=/mnt/config/prometheus.yaml

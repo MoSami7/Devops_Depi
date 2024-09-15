@@ -1,0 +1,29 @@
+auth_enabled: false #authentication
+
+server:
+  http_listen_port: 3100
+
+common:
+  instance_addr: 127.0.0.1 #indicating that Loki will only be accessible from the local machine.
+  path_prefix: /loki  #specifies a prefix for Loki's HTTP API endpoints.
+  storage:
+    filesystem:
+      chunks_directory: /loki/chunks #defines the directory where Loki will store log chunks (compressed log data).
+      rules_directory: /loki/rules  #This specifies the directory where Loki will store alerting rules.
+  replication_factor: 1 #no replication will occur; only one copy of the data
+  ring:
+    kvstore:
+      store: inmemory #making it suitable for single-node setups
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: tsdb #time series database storage engine.
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+ruler:
+  alertmanager_url: http://localhost:9093  #configures the URL of the Alertmanager, which Loki's ruler component will use to send alerts, acceisble on port 9093

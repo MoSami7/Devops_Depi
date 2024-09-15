@@ -3,12 +3,15 @@ from sqlite3 import Cursor
 from flask import Flask , render_template ,request ,url_for ,redirect
 from create_db import create_tables
 from FuctionDatabase import get_db
-from prometheus_flask_exporter import PrometheusMetrics
+from prometheus_flask_exporter import PrometheusMetrics 
 
 
 app = Flask(__name__)
 metrics = PrometheusMetrics(app)
-
+@app.route('/metrics')
+def metrics():
+    # This endpoint will be automatically exposed by PrometheusMetrics
+    pass
 
 @app.route('/' , methods = ['GET' , 'POST'])
 def index(): 
@@ -151,4 +154,4 @@ def update(ID):
 if (__name__ == '__main__'):
     conn = get_db()
     create_tables(conn)
-    app.run(debug=True , port=8080)
+    app.run(debug=True , port=5000)

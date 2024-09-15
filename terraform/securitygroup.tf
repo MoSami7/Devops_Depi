@@ -16,18 +16,18 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Allow HTTP traffic on port 8080 from anywhere
+  # Allow HTTP traffic on port 5000 from anywhere
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 5000
+    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   # Allow HTTP traffic on port 3000 from anywhere
   ingress {
-    from_port   = 8000
-    to_port     = 8000
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

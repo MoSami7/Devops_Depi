@@ -1,6 +1,6 @@
 activate enviroment at cmd
 
-.\vir\scripts\activate
+source venv/scripts/activate
 
 run at debug mode 
 
