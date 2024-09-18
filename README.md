@@ -10,7 +10,16 @@
 - Backend: Python (Flask)
 - Frontend: HTML, CSS
 - Database: SQL
-- DevOps: Docker, GitHub Actions, Terraform, Ansible , AWS , AWS CLI
+  ## DevOps Tools 
+- Docker 
+- GitHub Actions 
+- Terraform
+- Ansible
+- AWS
+- AWS CLI
+- Kubernetes
+- Helm
+- Monitoring (Prometheus, Loki, Promtail, Grafana)
 
 	## Docker
 	![docker](https://github.com/user-attachments/assets/0141109b-92b2-4a5e-bf2a-e6e72cc140b9)
