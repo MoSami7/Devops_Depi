@@ -75,8 +75,8 @@
 	**Grafana** is an open-source platform used for monitoring and observability. It provides visualizations and dashboards for the metrics collected by Prometheus, allowing users to track system performance.
 	#### Loki & Promtail
 	![loki](https://github.com/user-attachments/assets/a844ba04-2b25-4203-8ded-41f4735953f6)
-	**Loki** is a log aggregation system designed to work closely with Prometheus and Grafana. It collects and stores logs from various sources, helping you debug issues by correlating logs with metrics.
-	**Promtail** is an agent that collects logs from applications and forwards them to Loki. It works similarly to Prometheus, but for log data
+	- **Loki** is a log aggregation system designed to work closely with Prometheus and Grafana. It collects and stores logs from various sources, helping you debug issues by correlating logs with metrics.
+	- **Promtail** is an agent that collects logs from applications and forwards them to Loki. It works similarly to Prometheus, but for log data
   
 	### You Must make Configuration Files to Congifure the Monitoring tools
 	- prometheus.yml for Prometheus.
