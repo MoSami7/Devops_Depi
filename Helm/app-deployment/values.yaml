@@ -5,31 +5,7 @@
 replicaCount: 3
 
 # Application image and tag
-image: mustafa3li/palestine:latest
-
-# Port exposed by application container
-containerPort: 8000
-
-# Port to expose by the created service
-servicePort: 8000
-
-# Resource requests and limits for deployment
-cpuRequest: 2024m
-cpuLimit: 3036m
-memoryRequest: 4048Mi 
-memoryLimit: 4048Mi
-
-# Service configuration
-service:
-  type: LoadBalancer 
-  nodePort: 30080 # Default values for the Helm Chart
----
-
-# Number of replicas required
-replicaCount: 2
-
-# Application image and tag
-image: mustafa3li/palestine:latest
+image: mosami77/libimg:latest
 
 # Port exposed by application container
 containerPort: 5000
@@ -46,4 +22,4 @@ memoryLimit: 4048Mi
 # Service configuration
 service:
   type: LoadBalancer 
-  #nodePort: 30080 
+  # nodePort: 30080 # Default values for the Helm Chart
