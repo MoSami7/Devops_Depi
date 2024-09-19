@@ -1,7 +1,15 @@
-activate enviroment at cmd
+#make an virtual enviroment
+
+python3 -m venv venv
+
+#activate enviroment at cmd
 
 source venv/scripts/activate
 
-run at debug mode 
+#run at debug mode 
 
 flask --app app --debug run
+
+flask run
+
+python app.py
