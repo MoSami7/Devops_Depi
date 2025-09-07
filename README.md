@@ -1,4 +1,4 @@
-# Library Management System
+# Libraries Management System
 **This project is a small website that allows you to monitor your books, track profits and gains from selling and renting books, all through a simple and visually appealing interface.**
 
 ![image](https://github.com/user-attachments/assets/c3e3175b-3b2d-444f-aeb1-3554468180e3)
